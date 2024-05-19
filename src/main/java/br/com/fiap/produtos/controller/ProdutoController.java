@@ -5,7 +5,6 @@ import br.com.fiap.produtos.dto.ProdutoDto;
 import br.com.fiap.produtos.dto.mapper.PageableMapper;
 import br.com.fiap.produtos.dto.mapper.ProdutoMapper;
 import br.com.fiap.produtos.entity.Produto;
-import br.com.fiap.produtos.repository.ProdutoRepository;
 import br.com.fiap.produtos.repository.projection.ProdutoProjection;
 import br.com.fiap.produtos.service.ProdutoService;
 import jakarta.validation.Valid;
