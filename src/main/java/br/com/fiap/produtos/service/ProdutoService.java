@@ -41,4 +41,12 @@ public class ProdutoService {
         return produtoRepository.findByNomeContaining(nome, pageable);
     }
 
+    @Transactional
+    public void deletarPorId(Long id) {
+       Produto produto = buscarPorId(id) ;
+       if (produto != null) {
+           produtoRepository.deleteById(id);
+       }
+    }
+
 }

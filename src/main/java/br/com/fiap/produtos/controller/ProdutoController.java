@@ -43,9 +43,15 @@ public class ProdutoController {
 
     @GetMapping("/buscar-por-nome/{nome}")
     public ResponseEntity<PageableDto> buscarTodosProdutos(@PathVariable String nome,
-            @PageableDefault(size = 5, sort = {"nome"}) Pageable pageable) {
-        Page<ProdutoProjection> clientes = produtoService.buscarProdutosLikeNome(nome,pageable);
+                                                           @PageableDefault(size = 5, sort = {"nome"}) Pageable pageable) {
+        Page<ProdutoProjection> clientes = produtoService.buscarProdutosLikeNome(nome, pageable);
         return ResponseEntity.ok(PageableMapper.toDto(clientes));
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deletarProduto(@PathVariable Long id) {
+        produtoService.deletarPorId(id);
+        return ResponseEntity.noContent().build();
     }
 
 
