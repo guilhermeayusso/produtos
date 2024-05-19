@@ -25,7 +25,7 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity<ProdutoDto> cadastrarProduto(@Valid @RequestBody ProdutoDto produtoDto) {
         Produto produto = ProdutoMapper.INSTANCE.toEntity(produtoDto);
-        return ResponseEntity.ok(ProdutoMapper.INSTANCE.toDto(produtoService.salvar(produto)));
+        return ResponseEntity.status(201).body(ProdutoMapper.INSTANCE.toDto(produtoService.salvar(produto)));
     }
 
     @GetMapping
